@@ -3,7 +3,7 @@ Capstone Project work- EMBT
 
 Group :- 5
 Group Members:- Ankitkumar Patel
-                Krutika Fance
+                Krutika Fanse
                 Gurvindar Bhullar
                 
  
