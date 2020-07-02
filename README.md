@@ -4,7 +4,7 @@
     Group Members:- 
    - Ankitkumar Patel :mask:
    - Krutika Fanse    :mask:
-   - Gurvindar Bhullar :maks:
+   - Gurvindar Bhullar :mask:
 
 **Similar product in market**
 
