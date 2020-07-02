@@ -2,9 +2,9 @@
 #### Capstone Project work- EMBT
 #### Group :- 5
     Group Members:- 
-   - Ankitkumar Patel 
-   - Krutika Fanse
-   - Gurvindar Bhullar
+   - Ankitkumar Patel :mask:
+   - Krutika Fanse    :mask:
+   - Gurvindar Bhullar :maks:
 
 **Similar product in market**
 
