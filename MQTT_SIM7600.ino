@@ -9,8 +9,8 @@ Arduino Pins  -----  SIM7600 Pins
 
 #include<SoftwareSerial.h>
 SoftwareSerial mySerial(7,8);  // initialize pin 7 & pin 8 to be used as serial port pins
-#define sw 5
-#define led 6
+#define sw 5  // push button
+#define led 6 // LED Green
 int flag = 1;   
 int flag1 = 0;
 int state=0;
