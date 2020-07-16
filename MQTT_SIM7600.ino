@@ -1,20 +1,25 @@
 /*
-Developed by Nandu, Anandu, Unnikrishnan 
-Company: Elementz Engineers Guild Pvt Ltd
+This code is for demo of MQTT protocol using SIM7600 and Arduino.
+
+Arduino Pins  -----  SIM7600 Pins
+ Pin 7 (RXD)  -----  SIM7600 TXD
+ PIN 8 (TXD)  -----  SIM7600 RXD
+
 */
+
 #include<SoftwareSerial.h>
-SoftwareSerial mySerial(7,8);
+SoftwareSerial mySerial(7,8);  // initialize pin 7 & pin 8 to be used as serial port pins
 #define sw 5
 #define led 6
-int flag = 1;
+int flag = 1;   
 int flag1 = 0;
 int state=0;
-String Publish = "led/publish"; //Publish Topic
-String Subscribe = "led/subscribe"; //Subscribe Topic
+String Publish = "led/publ"; //Publish Topic
+String Subscribe = "led/subsc"; //Subscribe Topic
 
 void setup() 
 {
-  Serial.begin(9600);
+  Serial.begin(9600);  // initialize serial port at 9600bps speed
   mySerial.begin(9600);
   pinMode(sw, INPUT_PULLUP);
   pinMode(led, OUTPUT);
@@ -45,13 +50,13 @@ void setup()
   Serial.println("Done");
 }
 
-void loop() 
+void loop()      //polling loop to check if any data to be transmit
 {
   String a;
   if(state==0)
   {
 
-    if(digitalRead(sw) == 0 && flag1 == 0)
+    if(digitalRead(sw) == 0 && flag1 == 0)  //polling loop to check if any data to be transmit
     {
       //PUBLISH MESSAGE
       flag1 = 1;
@@ -122,7 +127,7 @@ void loop()
     }
   }
 
- //Receiving MODEM Response
+ //Receiving MODEM (SIM7600) Response
   while(mySerial.available()>0)
   {
     delay(10);
