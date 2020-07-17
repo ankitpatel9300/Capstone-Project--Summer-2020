@@ -1,9 +1,9 @@
 Archive member included to satisfy reference by file (symbol)
 
 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
-                              ./src/Interface_LPC1769_SIM7600.o (Board_UART_Init)
+                              ./src/Interface_LPC1769_SIM7600.o (Board_LED_Init)
 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
-                              ./src/sysinit.o (Board_SystemInit)
+                              ./src/Interface_LPC1769_SIM7600.o (Board_SystemInit)
 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(chip_17xx_40xx.o)
                               ./src/Interface_LPC1769_SIM7600.o (SystemCoreClockUpdate)
 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
@@ -78,6 +78,11 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./src/Interface_LPC1769_SIM7600.o
  .data          0x0000000000000000        0x0 ./src/Interface_LPC1769_SIM7600.o
  .bss           0x0000000000000000        0x0 ./src/Interface_LPC1769_SIM7600.o
+ .rodata.inst3  0x0000000000000000       0x3a ./src/Interface_LPC1769_SIM7600.o
+ .rodata.inst4  0x0000000000000000       0x17 ./src/Interface_LPC1769_SIM7600.o
+ .rodata.inst5  0x0000000000000000        0xa ./src/Interface_LPC1769_SIM7600.o
+ .rodata.inst6  0x0000000000000000       0x14 ./src/Interface_LPC1769_SIM7600.o
+ .rodata.inst7  0x0000000000000000        0x5 ./src/Interface_LPC1769_SIM7600.o
  .group         0x0000000000000000        0xc ./src/cr_startup_lpc175x_6x.o
  .text          0x0000000000000000        0x0 ./src/cr_startup_lpc175x_6x.o
  .data          0x0000000000000000        0x0 ./src/cr_startup_lpc175x_6x.o
@@ -247,8 +252,6 @@ Discarded input sections
                 0x0000000000000000       0x32 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
  .text.Board_I2C_Init
                 0x0000000000000000       0xbc /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
- .text.Board_Buttons_Init
-                0x0000000000000000       0x18 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
  .text.Buttons_GetStatus
                 0x0000000000000000       0x38 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
  .rodata.portButton
@@ -983,7 +986,7 @@ END GROUP
                 0x0000000020084000                __top_RamAHB32 = 0x20084000
                 0x0000000020084000                __top_RAM2 = 0x20084000
 
-.text           0x0000000000000000     0x1978
+.text           0x0000000000000000     0x198c
  FILL mask 0xff
                 0x0000000000000000                __vectors_start__ = ABSOLUTE (.)
  *(.isr_vector)
@@ -992,10 +995,10 @@ END GROUP
                 0x00000000000000cc                . = ALIGN (0x4)
                 0x00000000000000cc                __section_table_start = .
                 0x00000000000000cc                __data_section_table = .
-                0x00000000000000cc        0x4 LONG 0x1978 LOADADDR (.data)
+                0x00000000000000cc        0x4 LONG 0x198c LOADADDR (.data)
                 0x00000000000000d0        0x4 LONG 0x10000000 ADDR (.data)
                 0x00000000000000d4        0x4 LONG 0x0 SIZEOF (.data)
-                0x00000000000000d8        0x4 LONG 0x1978 LOADADDR (.data_RAM2)
+                0x00000000000000d8        0x4 LONG 0x198c LOADADDR (.data_RAM2)
                 0x00000000000000dc        0x4 LONG 0x2007c000 ADDR (.data_RAM2)
                 0x00000000000000e0        0x4 LONG 0x0 SIZEOF (.data_RAM2)
                 0x00000000000000e4                __data_section_table_end = .
@@ -1080,294 +1083,301 @@ END GROUP
  .text.UART0_IRQHandler
                 0x000000000000040c       0x20 ./src/Interface_LPC1769_SIM7600.o
                 0x000000000000040c                UART0_IRQHandler
- .text.main     0x000000000000042c       0xfc ./src/Interface_LPC1769_SIM7600.o
+ .text.main     0x000000000000042c       0x98 ./src/Interface_LPC1769_SIM7600.o
                 0x000000000000042c                main
+ .text.prvSetupHardware
+                0x00000000000004c4       0x18 ./src/Interface_LPC1769_SIM7600.o
+ .text.prvSetupUART0
+                0x00000000000004dc       0x78 ./src/Interface_LPC1769_SIM7600.o
  .text.SystemInit
-                0x0000000000000528       0x24 ./src/sysinit.o
-                0x0000000000000528                SystemInit
+                0x0000000000000554       0x24 ./src/sysinit.o
+                0x0000000000000554                SystemInit
  .text.Chip_IOCON_Init
-                0x000000000000054c       0x16 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x0000000000000578       0x16 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
  .text.Chip_GPIO_Init
-                0x0000000000000562       0x16 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x000000000000058e       0x16 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
  .text.Chip_GPIO_SetPinState
-                0x0000000000000578       0x64 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x00000000000005a4       0x64 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
  .text.Chip_GPIO_WritePortBit
-                0x00000000000005dc       0x2c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x0000000000000608       0x2c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
  .text.Chip_GPIO_GetPinState
-                0x0000000000000608       0x38 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x0000000000000634       0x38 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
  .text.Chip_GPIO_ReadPortBit
-                0x0000000000000640       0x26 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x000000000000066c       0x26 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
  .text.Chip_GPIO_SetPinDIROutput
-                0x0000000000000666       0x36 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x0000000000000692       0x36 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
  .text.Chip_GPIO_SetPinDIRInput
-                0x000000000000069c       0x3a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x00000000000006c8       0x3a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
  .text.Chip_GPIO_SetPinDIR
-                0x00000000000006d6       0x42 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x0000000000000702       0x42 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
  .text.Chip_GPIO_WriteDirBit
-                0x0000000000000718       0x2e /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x0000000000000744       0x2e /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
  .text.Chip_UART_ConfigData
-                0x0000000000000746       0x1a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x0000000000000772       0x1a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
  .text.Board_LED_Init
-                0x0000000000000760       0x18 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x000000000000078c       0x18 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x000000000000078c                Board_LED_Init
  .text.Board_UART_Init
-                0x0000000000000778       0x12 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
-                0x0000000000000778                Board_UART_Init
- *fill*         0x000000000000078a        0x2 ff
+                0x00000000000007a4       0x12 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x00000000000007a4                Board_UART_Init
+ *fill*         0x00000000000007b6        0x2 ff
  .text.Board_Debug_Init
-                0x000000000000078c       0x30 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
-                0x000000000000078c                Board_Debug_Init
+                0x00000000000007b8       0x30 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x00000000000007b8                Board_Debug_Init
  .text.Board_LED_Set
-                0x00000000000007bc       0x30 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
-                0x00000000000007bc                Board_LED_Set
+                0x00000000000007e8       0x30 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x00000000000007e8                Board_LED_Set
  .text.Board_LED_Test
-                0x00000000000007ec       0x30 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
-                0x00000000000007ec                Board_LED_Test
+                0x0000000000000818       0x30 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x0000000000000818                Board_LED_Test
  .text.Board_LED_Toggle
-                0x000000000000081c       0x42 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
-                0x000000000000081c                Board_LED_Toggle
- *fill*         0x000000000000085e        0x2 ff
+                0x0000000000000848       0x42 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x0000000000000848                Board_LED_Toggle
+ *fill*         0x000000000000088a        0x2 ff
  .text.Board_Init
-                0x0000000000000860       0x24 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
-                0x0000000000000860                Board_Init
+                0x000000000000088c       0x24 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x000000000000088c                Board_Init
+ .text.Board_Buttons_Init
+                0x00000000000008b0       0x18 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x00000000000008b0                Board_Buttons_Init
  .text.Chip_SYSCTL_SetFLASHAccess
-                0x0000000000000884       0x30 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
+                0x00000000000008c8       0x30 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
  .text.Board_SetupMuxing
-                0x00000000000008b4       0x1c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
-                0x00000000000008b4                Board_SetupMuxing
+                0x00000000000008f8       0x1c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
+                0x00000000000008f8                Board_SetupMuxing
  .text.Board_SetupClocking
-                0x00000000000008d0       0x12 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
-                0x00000000000008d0                Board_SetupClocking
+                0x0000000000000914       0x12 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
+                0x0000000000000914                Board_SetupClocking
  .text.Board_SystemInit
-                0x00000000000008e2       0x10 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
-                0x00000000000008e2                Board_SystemInit
- *fill*         0x00000000000008f2        0x2 ff
+                0x0000000000000926       0x10 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
+                0x0000000000000926                Board_SystemInit
+ *fill*         0x0000000000000936        0x2 ff
  .text.SystemCoreClockUpdate
-                0x00000000000008f4       0x18 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(chip_17xx_40xx.o)
-                0x00000000000008f4                SystemCoreClockUpdate
+                0x0000000000000938       0x18 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(chip_17xx_40xx.o)
+                0x0000000000000938                SystemCoreClockUpdate
  .text.Chip_Clock_IsMainPLLEnabled
-                0x000000000000090c       0x24 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000950       0x24 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
  .text.Chip_Clock_IsMainPLLConnected
-                0x0000000000000930       0x24 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000974       0x24 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
  .text.Chip_Clock_FeedPLL
-                0x0000000000000954       0x34 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000998       0x34 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
  .text.Chip_Clock_GetMainPLLSource
-                0x0000000000000988       0x20 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x00000000000009cc       0x20 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
  .text.Chip_Clock_GetMainOscRate
-                0x00000000000009a8       0x14 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x00000000000009ec       0x14 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
  .text.Chip_Clock_GetIntOscRate
-                0x00000000000009bc       0x14 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000a00       0x14 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
  .text.Chip_Clock_GetRTCOscRate
-                0x00000000000009d0       0x14 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000a14       0x14 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
  .text.Chip_Clock_GetMainPLLInClockRate
-                0x00000000000009e4        0xe /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
- *fill*         0x00000000000009f2        0x2 ff
+                0x0000000000000a28        0xe /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+ *fill*         0x0000000000000a36        0x2 ff
  .text.Chip_Clock_EnablePLL
-                0x00000000000009f4       0x44 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
-                0x00000000000009f4                Chip_Clock_EnablePLL
+                0x0000000000000a38       0x44 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000a38                Chip_Clock_EnablePLL
  .text.Chip_Clock_DisablePLL
-                0x0000000000000a38       0x48 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
-                0x0000000000000a38                Chip_Clock_DisablePLL
+                0x0000000000000a7c       0x48 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000a7c                Chip_Clock_DisablePLL
  .text.Chip_Clock_SetupPLL
-                0x0000000000000a80       0x5c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
-                0x0000000000000a80                Chip_Clock_SetupPLL
+                0x0000000000000ac4       0x5c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000ac4                Chip_Clock_SetupPLL
  .text.Chip_Clock_EnablePeriphClock
-                0x0000000000000adc       0x34 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
-                0x0000000000000adc                Chip_Clock_EnablePeriphClock
+                0x0000000000000b20       0x34 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000b20                Chip_Clock_EnablePeriphClock
  .text.Chip_Clock_DisablePeriphClock
-                0x0000000000000b10       0x38 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
-                0x0000000000000b10                Chip_Clock_DisablePeriphClock
+                0x0000000000000b54       0x38 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000b54                Chip_Clock_DisablePeriphClock
  .text.Chip_Clock_GetCPUClockSource
-                0x0000000000000b48       0x24 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
-                0x0000000000000b48                Chip_Clock_GetCPUClockSource
+                0x0000000000000b8c       0x24 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000b8c                Chip_Clock_GetCPUClockSource
  .text.Chip_Clock_SetCPUClockDiv
-                0x0000000000000b6c       0x20 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
-                0x0000000000000b6c                Chip_Clock_SetCPUClockDiv
+                0x0000000000000bb0       0x20 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000bb0                Chip_Clock_SetCPUClockDiv
  .text.Chip_Clock_GetCPUClockDiv
-                0x0000000000000b8c       0x1c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
-                0x0000000000000b8c                Chip_Clock_GetCPUClockDiv
+                0x0000000000000bd0       0x1c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000bd0                Chip_Clock_GetCPUClockDiv
  .text.Chip_Clock_GetPCLKDiv
-                0x0000000000000ba8       0x8c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
-                0x0000000000000ba8                Chip_Clock_GetPCLKDiv
+                0x0000000000000bec       0x8c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000bec                Chip_Clock_GetPCLKDiv
  .text.Chip_Clock_GetSYSCLKRate
-                0x0000000000000c34       0x34 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
-                0x0000000000000c34                Chip_Clock_GetSYSCLKRate
+                0x0000000000000c78       0x34 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000c78                Chip_Clock_GetSYSCLKRate
  .text.Chip_Clock_GetMainPLLOutClockRate
-                0x0000000000000c68       0x54 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
-                0x0000000000000c68                Chip_Clock_GetMainPLLOutClockRate
+                0x0000000000000cac       0x54 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000cac                Chip_Clock_GetMainPLLOutClockRate
  .text.Chip_Clock_GetMainClockRate
-                0x0000000000000cbc       0x28 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
-                0x0000000000000cbc                Chip_Clock_GetMainClockRate
+                0x0000000000000d00       0x28 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000d00                Chip_Clock_GetMainClockRate
  .text.Chip_Clock_GetSystemClockRate
-                0x0000000000000ce4       0x18 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
-                0x0000000000000ce4                Chip_Clock_GetSystemClockRate
+                0x0000000000000d28       0x18 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000d28                Chip_Clock_GetSystemClockRate
  .text.Chip_Clock_GetPeripheralClockRate
-                0x0000000000000cfc       0x26 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
-                0x0000000000000cfc                Chip_Clock_GetPeripheralClockRate
+                0x0000000000000d40       0x26 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x0000000000000d40                Chip_Clock_GetPeripheralClockRate
  .text.Chip_IOCON_PinMuxSet
-                0x0000000000000d22       0x36 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
-                0x0000000000000d22                Chip_IOCON_PinMuxSet
+                0x0000000000000d66       0x36 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
+                0x0000000000000d66                Chip_IOCON_PinMuxSet
  .text.Chip_IOCON_PinMux
-                0x0000000000000d58       0x94 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
-                0x0000000000000d58                Chip_IOCON_PinMux
+                0x0000000000000d9c       0x94 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
+                0x0000000000000d9c                Chip_IOCON_PinMux
  .text.Chip_IOCON_SetPinMuxing
-                0x0000000000000dec       0x62 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
-                0x0000000000000dec                Chip_IOCON_SetPinMuxing
+                0x0000000000000e30       0x62 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
+                0x0000000000000e30                Chip_IOCON_SetPinMuxing
  .text.RingBuffer_GetCount
-                0x0000000000000e4e       0x20 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
+                0x0000000000000e92       0x20 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
  .text.RingBuffer_GetFree
-                0x0000000000000e6e       0x1e /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
+                0x0000000000000eb2       0x1e /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
  .text.RingBuffer_IsFull
-                0x0000000000000e8c       0x26 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
+                0x0000000000000ed0       0x26 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
  .text.RingBuffer_IsEmpty
-                0x0000000000000eb2       0x28 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
+                0x0000000000000ef6       0x28 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
  .text.RingBuffer_Init
-                0x0000000000000eda       0x3a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
-                0x0000000000000eda                RingBuffer_Init
+                0x0000000000000f1e       0x3a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
+                0x0000000000000f1e                RingBuffer_Init
  .text.RingBuffer_Insert
-                0x0000000000000f14       0x5c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
-                0x0000000000000f14                RingBuffer_Insert
+                0x0000000000000f58       0x5c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
+                0x0000000000000f58                RingBuffer_Insert
  .text.RingBuffer_InsertMult
-                0x0000000000000f70      0x122 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
-                0x0000000000000f70                RingBuffer_InsertMult
+                0x0000000000000fb4      0x122 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
+                0x0000000000000fb4                RingBuffer_InsertMult
  .text.RingBuffer_Pop
-                0x0000000000001092       0x5c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
-                0x0000000000001092                RingBuffer_Pop
+                0x00000000000010d6       0x5c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
+                0x00000000000010d6                RingBuffer_Pop
  .text.RingBuffer_PopMult
-                0x00000000000010ee      0x122 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
-                0x00000000000010ee                RingBuffer_PopMult
+                0x0000000000001132      0x122 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
+                0x0000000000001132                RingBuffer_PopMult
  .text.Chip_Clock_IsMainPLLEnabled
-                0x0000000000001210       0x24 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
+                0x0000000000001254       0x24 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
  .text.Chip_Clock_IsMainPLLLocked
-                0x0000000000001234       0x24 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
+                0x0000000000001278       0x24 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
  .text.Chip_Clock_IsMainPLLConnected
-                0x0000000000001258       0x24 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
- .text.Chip_Clock_EnableCrystal
-                0x000000000000127c       0x20 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
- .text.Chip_Clock_IsCrystalEnabled
                 0x000000000000129c       0x24 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
- .text.Chip_Clock_SetMainPLLSource
+ .text.Chip_Clock_EnableCrystal
                 0x00000000000012c0       0x20 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
+ .text.Chip_Clock_IsCrystalEnabled
+                0x00000000000012e0       0x24 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
+ .text.Chip_Clock_SetMainPLLSource
+                0x0000000000001304       0x20 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
  .text.Chip_SetupXtalClocking
-                0x00000000000012e0       0x90 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
-                0x00000000000012e0                Chip_SetupXtalClocking
+                0x0000000000001324       0x90 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
+                0x0000000000001324                Chip_SetupXtalClocking
  .text.RingBuffer_IsEmpty
-                0x0000000000001370       0x28 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x00000000000013b4       0x28 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
  .text.Chip_UART_SendByte
-                0x0000000000001398       0x1c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x00000000000013dc       0x1c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
  .text.Chip_UART_ReadByte
-                0x00000000000013b4       0x18 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x00000000000013f8       0x18 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
  .text.Chip_UART_IntEnable
-                0x00000000000013cc       0x20 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x0000000000001410       0x20 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
  .text.Chip_UART_IntDisable
-                0x00000000000013ec       0x22 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x0000000000001430       0x22 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
  .text.Chip_UART_ReadIntIDReg
-                0x000000000000140e       0x16 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x0000000000001452       0x16 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
  .text.Chip_UART_SetupFIFOS
-                0x0000000000001424       0x1a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x0000000000001468       0x1a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
  .text.Chip_UART_ConfigData
-                0x000000000000143e       0x1a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x0000000000001482       0x1a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
  .text.Chip_UART_EnableDivisorAccess
-                0x0000000000001458       0x1e /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x000000000000149c       0x1e /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
  .text.Chip_UART_DisableDivisorAccess
-                0x0000000000001476       0x1e /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x00000000000014ba       0x1e /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
  .text.Chip_UART_SetDivisorLatches
-                0x0000000000001494       0x26 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x00000000000014d8       0x26 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
  .text.Chip_UART_ReadLineStatus
-                0x00000000000014ba       0x16 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x00000000000014fe       0x16 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
  .text.Chip_UART_SetAutoBaudReg
-                0x00000000000014d0       0x20 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x0000000000001514       0x20 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
  .text.Chip_UART_GetClockIndex
-                0x00000000000014f0       0x50 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x0000000000001534       0x50 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
  .text.Chip_UART_ABIntHandler
-                0x0000000000001540       0x6c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x0000000000001584       0x6c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
  .text.Chip_UART_GetClkIndex
-                0x00000000000015ac       0x50 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x00000000000015f0       0x50 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
  .text.Chip_UART_Init
-                0x00000000000015fc       0x78 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
-                0x00000000000015fc                Chip_UART_Init
+                0x0000000000001640       0x78 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x0000000000001640                Chip_UART_Init
  .text.Chip_UART_DeInit
-                0x0000000000001674       0x24 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
-                0x0000000000001674                Chip_UART_DeInit
+                0x00000000000016b8       0x24 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x00000000000016b8                Chip_UART_DeInit
  .text.Chip_UART_TXEnable
-                0x0000000000001698       0x18 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
-                0x0000000000001698                Chip_UART_TXEnable
+                0x00000000000016dc       0x18 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x00000000000016dc                Chip_UART_TXEnable
  .text.Chip_UART_TXDisable
-                0x00000000000016b0       0x18 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
-                0x00000000000016b0                Chip_UART_TXDisable
+                0x00000000000016f4       0x18 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x00000000000016f4                Chip_UART_TXDisable
  .text.Chip_UART_SetBaud
-                0x00000000000016c8       0x62 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
-                0x00000000000016c8                Chip_UART_SetBaud
+                0x000000000000170c       0x62 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x000000000000170c                Chip_UART_SetBaud
  .text.Chip_UART_RXIntHandlerRB
-                0x000000000000172a       0x3a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
-                0x000000000000172a                Chip_UART_RXIntHandlerRB
+                0x000000000000176e       0x3a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x000000000000176e                Chip_UART_RXIntHandlerRB
  .text.Chip_UART_TXIntHandlerRB
-                0x0000000000001764       0x40 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
-                0x0000000000001764                Chip_UART_TXIntHandlerRB
+                0x00000000000017a8       0x40 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x00000000000017a8                Chip_UART_TXIntHandlerRB
  .text.Chip_UART_SendRB
-                0x00000000000017a4       0x60 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
-                0x00000000000017a4                Chip_UART_SendRB
+                0x00000000000017e8       0x60 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x00000000000017e8                Chip_UART_SendRB
  .text.Chip_UART_ReadRB
-                0x0000000000001804       0x22 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
-                0x0000000000001804                Chip_UART_ReadRB
+                0x0000000000001848       0x22 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x0000000000001848                Chip_UART_ReadRB
  .text.Chip_UART_IRQRBHandler
-                0x0000000000001826       0x4a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
-                0x0000000000001826                Chip_UART_IRQRBHandler
- .text.memcpy   0x0000000000001870        0x4 /usr/local/mcuxpressoide-11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(memcpy.o)
-                0x0000000000001870                memcpy
+                0x000000000000186a       0x4a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x000000000000186a                Chip_UART_IRQRBHandler
+ .text.memcpy   0x00000000000018b4        0x4 /usr/local/mcuxpressoide-11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(memcpy.o)
+                0x00000000000018b4                memcpy
  .text.__weak_main
-                0x0000000000001874        0x4 /usr/local/mcuxpressoide-11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(__weak__main.o)
-                0x0000000000001874                __main
-                0x0000000000001874                __weak_main
+                0x00000000000018b8        0x4 /usr/local/mcuxpressoide-11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(__weak__main.o)
+                0x00000000000018b8                __main
+                0x00000000000018b8                __weak_main
  .text.__aeabi_memcpy
-                0x0000000000001878       0x34 /usr/local/mcuxpressoide-11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(memcpy.o)
-                0x0000000000001878                __aeabi_memcpy
-                0x0000000000001882                __aeabi_memcpy4
-                0x0000000000001882                __aeabi_memcpy8
+                0x00000000000018bc       0x34 /usr/local/mcuxpressoide-11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(memcpy.o)
+                0x00000000000018bc                __aeabi_memcpy
+                0x00000000000018c6                __aeabi_memcpy4
+                0x00000000000018c6                __aeabi_memcpy8
  *(.rodata .rodata.* .constdata .constdata.*)
- .rodata.inst1  0x00000000000018ac       0x2f ./src/Interface_LPC1769_SIM7600.o
-                0x00000000000018ac                inst1
- *fill*         0x00000000000018db        0x1 ff
- .rodata.inst2  0x00000000000018dc       0x2d ./src/Interface_LPC1769_SIM7600.o
-                0x00000000000018dc                inst2
- *fill*         0x0000000000001909        0x3 ff
+ .rodata.inst1  0x00000000000018f0       0x10 ./src/Interface_LPC1769_SIM7600.o
+                0x00000000000018f0                inst1
+ .rodata.inst2  0x0000000000001900       0x1d ./src/Interface_LPC1769_SIM7600.o
+                0x0000000000001900                inst2
+ *fill*         0x000000000000191d        0x3 ff
  .rodata.OscRateIn
-                0x000000000000190c        0x4 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
-                0x000000000000190c                OscRateIn
+                0x0000000000001920        0x4 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x0000000000001920                OscRateIn
  .rodata.RTCOscRateIn
-                0x0000000000001910        0x4 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
-                0x0000000000001910                RTCOscRateIn
+                0x0000000000001924        0x4 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x0000000000001924                RTCOscRateIn
  .rodata.pinmuxing
-                0x0000000000001914       0x64 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
-                0x0000000000001978                . = ALIGN (0x4)
+                0x0000000000001928       0x64 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
+                0x000000000000198c                . = ALIGN (0x4)
 
-.glue_7         0x0000000000001978        0x0
- .glue_7        0x0000000000001978        0x0 linker stubs
+.glue_7         0x000000000000198c        0x0
+ .glue_7        0x000000000000198c        0x0 linker stubs
 
-.glue_7t        0x0000000000001978        0x0
- .glue_7t       0x0000000000001978        0x0 linker stubs
+.glue_7t        0x000000000000198c        0x0
+ .glue_7t       0x000000000000198c        0x0 linker stubs
 
-.vfp11_veneer   0x0000000000001978        0x0
- .vfp11_veneer  0x0000000000001978        0x0 linker stubs
+.vfp11_veneer   0x000000000000198c        0x0
+ .vfp11_veneer  0x000000000000198c        0x0 linker stubs
 
-.v4_bx          0x0000000000001978        0x0
- .v4_bx         0x0000000000001978        0x0 linker stubs
+.v4_bx          0x000000000000198c        0x0
+ .v4_bx         0x000000000000198c        0x0 linker stubs
 
-.iplt           0x0000000000001978        0x0
- .iplt          0x0000000000001978        0x0 ./src/Interface_LPC1769_SIM7600.o
+.iplt           0x000000000000198c        0x0
+ .iplt          0x000000000000198c        0x0 ./src/Interface_LPC1769_SIM7600.o
 
-.rel.dyn        0x0000000000001978        0x0
- .rel.iplt      0x0000000000001978        0x0 ./src/Interface_LPC1769_SIM7600.o
+.rel.dyn        0x000000000000198c        0x0
+ .rel.iplt      0x000000000000198c        0x0 ./src/Interface_LPC1769_SIM7600.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM.exidx      0x0000000000001978        0x0
-                0x0000000000001978                __exidx_start = .
+.ARM.exidx      0x000000000000198c        0x0
+                0x000000000000198c                __exidx_start = .
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000000000001978                __exidx_end = .
-                0x0000000000001978                _etext = .
+                0x000000000000198c                __exidx_end = .
+                0x000000000000198c                _etext = .
 
-.data_RAM2      0x000000002007c000        0x0 load address 0x0000000000001978
+.data_RAM2      0x000000002007c000        0x0 load address 0x000000000000198c
  FILL mask 0xff
                 [!provide]                        PROVIDE (__start_data_RAM2 = .)
                 [!provide]                        PROVIDE (__start_data_RamAHB32 = .)
@@ -1388,7 +1398,7 @@ END GROUP
                 0x0000000010000000                . = ALIGN (0x4)
                 0x0000000010000000                _end_uninit_RESERVED = .
 
-.data           0x0000000010000000        0x0 load address 0x0000000000001978
+.data           0x0000000010000000        0x0 load address 0x000000000000198c
  FILL mask 0xff
                 0x0000000010000000                _data = .
                 [!provide]                        PROVIDE (__start_data_RAM = .)
@@ -1404,7 +1414,7 @@ END GROUP
                 [!provide]                        PROVIDE (__end_data_RAM = .)
                 [!provide]                        PROVIDE (__end_data_RamLoc32 = .)
 
-.igot.plt       0x0000000010000000        0x0 load address 0x0000000000001978
+.igot.plt       0x0000000010000000        0x0 load address 0x000000000000198c
  .igot.plt      0x0000000010000000        0x0 ./src/Interface_LPC1769_SIM7600.o
 
 .bss_RAM2       0x000000002007c000        0x0
@@ -1463,76 +1473,76 @@ END GROUP
                 0x0000000010008000                PROVIDE (_vStackTop = DEFINED (__user_stack_top)?__user_stack_top:(__top_RamLoc32 - 0x0))
                 0xffffffffefff74de                PROVIDE (__valid_user_code_checksum = (0x0 - ((((((_vStackTop + (ResetISR + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
                 0x0000000000000000                _image_start = LOADADDR (.text)
-                0x0000000000001978                _image_end = (LOADADDR (.data) + SIZEOF (.data))
-                0x0000000000001978                _image_size = (_image_end - _image_start)
+                0x000000000000198c                _image_end = (LOADADDR (.data) + SIZEOF (.data))
+                0x000000000000198c                _image_size = (_image_end - _image_start)
 OUTPUT(Interface_LPC1769_SIM7600.axf elf32-littlearm)
 
-.debug_info     0x0000000000000000     0x5b0b
- .debug_info    0x0000000000000000      0xb6a ./src/Interface_LPC1769_SIM7600.o
- .debug_info    0x0000000000000b6a      0x276 ./src/cr_startup_lpc175x_6x.o
- .debug_info    0x0000000000000de0       0x40 ./src/crp.o
- .debug_info    0x0000000000000e20      0x250 ./src/sysinit.o
- .debug_info    0x0000000000001070     0x164a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
- .debug_info    0x00000000000026ba      0x71d /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
- .debug_info    0x0000000000002dd7      0x591 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(chip_17xx_40xx.o)
- .debug_info    0x0000000000003368      0xc2a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
- .debug_info    0x0000000000003f92      0x347 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
- .debug_info    0x00000000000042d9      0x3a8 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
- .debug_info    0x0000000000004681      0x4b0 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
- .debug_info    0x0000000000004b31      0xfda /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+.debug_info     0x0000000000000000     0x5c05
+ .debug_info    0x0000000000000000      0xc64 ./src/Interface_LPC1769_SIM7600.o
+ .debug_info    0x0000000000000c64      0x276 ./src/cr_startup_lpc175x_6x.o
+ .debug_info    0x0000000000000eda       0x40 ./src/crp.o
+ .debug_info    0x0000000000000f1a      0x250 ./src/sysinit.o
+ .debug_info    0x000000000000116a     0x164a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+ .debug_info    0x00000000000027b4      0x71d /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
+ .debug_info    0x0000000000002ed1      0x591 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(chip_17xx_40xx.o)
+ .debug_info    0x0000000000003462      0xc2a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+ .debug_info    0x000000000000408c      0x347 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
+ .debug_info    0x00000000000043d3      0x3a8 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
+ .debug_info    0x000000000000477b      0x4b0 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
+ .debug_info    0x0000000000004c2b      0xfda /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
 
-.debug_abbrev   0x0000000000000000     0x1725
- .debug_abbrev  0x0000000000000000      0x276 ./src/Interface_LPC1769_SIM7600.o
- .debug_abbrev  0x0000000000000276      0x12a ./src/cr_startup_lpc175x_6x.o
- .debug_abbrev  0x00000000000003a0       0x38 ./src/crp.o
- .debug_abbrev  0x00000000000003d8       0xeb ./src/sysinit.o
- .debug_abbrev  0x00000000000004c3      0x420 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
- .debug_abbrev  0x00000000000008e3      0x1a2 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
- .debug_abbrev  0x0000000000000a85      0x16d /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(chip_17xx_40xx.o)
- .debug_abbrev  0x0000000000000bf2      0x34d /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
- .debug_abbrev  0x0000000000000f3f      0x164 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
- .debug_abbrev  0x00000000000010a3      0x17e /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
- .debug_abbrev  0x0000000000001221      0x1b0 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
- .debug_abbrev  0x00000000000013d1      0x354 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+.debug_abbrev   0x0000000000000000     0x1757
+ .debug_abbrev  0x0000000000000000      0x2c0 ./src/Interface_LPC1769_SIM7600.o
+ .debug_abbrev  0x00000000000002c0      0x12a ./src/cr_startup_lpc175x_6x.o
+ .debug_abbrev  0x00000000000003ea       0x38 ./src/crp.o
+ .debug_abbrev  0x0000000000000422       0xeb ./src/sysinit.o
+ .debug_abbrev  0x000000000000050d      0x408 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+ .debug_abbrev  0x0000000000000915      0x1a2 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
+ .debug_abbrev  0x0000000000000ab7      0x16d /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(chip_17xx_40xx.o)
+ .debug_abbrev  0x0000000000000c24      0x34d /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+ .debug_abbrev  0x0000000000000f71      0x164 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
+ .debug_abbrev  0x00000000000010d5      0x17e /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
+ .debug_abbrev  0x0000000000001253      0x1b0 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
+ .debug_abbrev  0x0000000000001403      0x354 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
 
-.debug_aranges  0x0000000000000000      0x618
+.debug_aranges  0x0000000000000000      0x628
  .debug_aranges
-                0x0000000000000000       0x58 ./src/Interface_LPC1769_SIM7600.o
+                0x0000000000000000       0x68 ./src/Interface_LPC1769_SIM7600.o
  .debug_aranges
-                0x0000000000000058       0x80 ./src/cr_startup_lpc175x_6x.o
+                0x0000000000000068       0x80 ./src/cr_startup_lpc175x_6x.o
  .debug_aranges
-                0x00000000000000d8       0x18 ./src/crp.o
+                0x00000000000000e8       0x18 ./src/crp.o
  .debug_aranges
-                0x00000000000000f0       0x20 ./src/sysinit.o
+                0x0000000000000100       0x20 ./src/sysinit.o
  .debug_aranges
-                0x0000000000000110      0x160 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                0x0000000000000120      0x160 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
  .debug_aranges
-                0x0000000000000270       0x38 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
+                0x0000000000000280       0x38 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
  .debug_aranges
-                0x00000000000002a8       0x38 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(chip_17xx_40xx.o)
+                0x00000000000002b8       0x38 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(chip_17xx_40xx.o)
  .debug_aranges
-                0x00000000000002e0      0x120 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+                0x00000000000002f0      0x120 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
  .debug_aranges
-                0x0000000000000400       0x30 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
+                0x0000000000000410       0x30 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
  .debug_aranges
-                0x0000000000000430       0x60 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
+                0x0000000000000440       0x60 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
  .debug_aranges
-                0x0000000000000490       0x60 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
+                0x00000000000004a0       0x60 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
  .debug_aranges
-                0x00000000000004f0      0x128 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+                0x0000000000000500      0x128 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
 
-.debug_ranges   0x0000000000000000      0x550
- .debug_ranges  0x0000000000000000       0x48 ./src/Interface_LPC1769_SIM7600.o
- .debug_ranges  0x0000000000000048       0x70 ./src/cr_startup_lpc175x_6x.o
- .debug_ranges  0x00000000000000b8       0x10 ./src/sysinit.o
- .debug_ranges  0x00000000000000c8      0x150 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
- .debug_ranges  0x0000000000000218       0x28 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
- .debug_ranges  0x0000000000000240       0x28 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(chip_17xx_40xx.o)
- .debug_ranges  0x0000000000000268      0x110 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
- .debug_ranges  0x0000000000000378       0x20 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
- .debug_ranges  0x0000000000000398       0x50 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
- .debug_ranges  0x00000000000003e8       0x50 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
- .debug_ranges  0x0000000000000438      0x118 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+.debug_ranges   0x0000000000000000      0x560
+ .debug_ranges  0x0000000000000000       0x58 ./src/Interface_LPC1769_SIM7600.o
+ .debug_ranges  0x0000000000000058       0x70 ./src/cr_startup_lpc175x_6x.o
+ .debug_ranges  0x00000000000000c8       0x10 ./src/sysinit.o
+ .debug_ranges  0x00000000000000d8      0x150 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+ .debug_ranges  0x0000000000000228       0x28 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
+ .debug_ranges  0x0000000000000250       0x28 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(chip_17xx_40xx.o)
+ .debug_ranges  0x0000000000000278      0x110 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+ .debug_ranges  0x0000000000000388       0x20 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
+ .debug_ranges  0x00000000000003a8       0x50 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
+ .debug_ranges  0x00000000000003f8       0x50 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
+ .debug_ranges  0x0000000000000448      0x118 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
 
 .debug_macro    0x0000000000000000     0x5917
  .debug_macro   0x0000000000000000      0x23d ./src/Interface_LPC1769_SIM7600.o
@@ -1593,44 +1603,44 @@ OUTPUT(Interface_LPC1769_SIM7600.axf elf32-littlearm)
  .debug_macro   0x000000000000557d      0x1cd /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
  .debug_macro   0x000000000000574a      0x1cd /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
 
-.debug_line     0x0000000000000000     0x45ff
- .debug_line    0x0000000000000000      0x653 ./src/Interface_LPC1769_SIM7600.o
- .debug_line    0x0000000000000653      0x160 ./src/cr_startup_lpc175x_6x.o
- .debug_line    0x00000000000007b3       0xb5 ./src/crp.o
- .debug_line    0x0000000000000868      0x51a ./src/sysinit.o
- .debug_line    0x0000000000000d82      0xa93 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
- .debug_line    0x0000000000001815      0x573 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
- .debug_line    0x0000000000001d88      0x523 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(chip_17xx_40xx.o)
- .debug_line    0x00000000000022ab      0x98a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
- .debug_line    0x0000000000002c35      0x53f /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
- .debug_line    0x0000000000003174      0x42b /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
- .debug_line    0x000000000000359f      0x5fc /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
- .debug_line    0x0000000000003b9b      0xa64 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+.debug_line     0x0000000000000000     0x463a
+ .debug_line    0x0000000000000000      0x68e ./src/Interface_LPC1769_SIM7600.o
+ .debug_line    0x000000000000068e      0x160 ./src/cr_startup_lpc175x_6x.o
+ .debug_line    0x00000000000007ee       0xb5 ./src/crp.o
+ .debug_line    0x00000000000008a3      0x51a ./src/sysinit.o
+ .debug_line    0x0000000000000dbd      0xa93 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+ .debug_line    0x0000000000001850      0x573 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
+ .debug_line    0x0000000000001dc3      0x523 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(chip_17xx_40xx.o)
+ .debug_line    0x00000000000022e6      0x98a /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+ .debug_line    0x0000000000002c70      0x53f /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
+ .debug_line    0x00000000000031af      0x42b /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
+ .debug_line    0x00000000000035da      0x5fc /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
+ .debug_line    0x0000000000003bd6      0xa64 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
 
-.debug_str      0x0000000000000000    0x13a5c
- .debug_str     0x0000000000000000    0x118f5 ./src/Interface_LPC1769_SIM7600.o
-                                      0x11a26 (size before relaxing)
- .debug_str     0x00000000000118f5      0x1d6 ./src/cr_startup_lpc175x_6x.o
+.debug_str      0x0000000000000000    0x13a99
+ .debug_str     0x0000000000000000    0x11941 ./src/Interface_LPC1769_SIM7600.o
+                                      0x11a72 (size before relaxing)
+ .debug_str     0x0000000000011941      0x1d6 ./src/cr_startup_lpc175x_6x.o
                                        0x2fc1 (size before relaxing)
- .debug_str     0x0000000000011acb       0xe9 ./src/crp.o
+ .debug_str     0x0000000000011b17       0xe9 ./src/crp.o
                                        0x2ece (size before relaxing)
- .debug_str     0x0000000000011bb4       0x1b ./src/sysinit.o
+ .debug_str     0x0000000000011c00       0x1b ./src/sysinit.o
                                       0x113a3 (size before relaxing)
- .debug_str     0x0000000000011bcf      0xd77 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+ .debug_str     0x0000000000011c1b      0xd68 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
                                       0x1225b (size before relaxing)
- .debug_str     0x0000000000012946      0x22d /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
+ .debug_str     0x0000000000012983      0x22d /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
                                       0x11795 (size before relaxing)
- .debug_str     0x0000000000012b73       0xc1 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(chip_17xx_40xx.o)
+ .debug_str     0x0000000000012bb0       0xc1 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(chip_17xx_40xx.o)
                                       0x113e5 (size before relaxing)
- .debug_str     0x0000000000012c34      0x857 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+ .debug_str     0x0000000000012c71      0x857 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
                                       0x11a63 (size before relaxing)
- .debug_str     0x000000000001348b       0x79 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
+ .debug_str     0x00000000000134c8       0x79 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
                                       0x10ee0 (size before relaxing)
- .debug_str     0x0000000000013504      0x149 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
+ .debug_str     0x0000000000013541      0x149 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
                                        0x48cc (size before relaxing)
- .debug_str     0x000000000001364d       0xc4 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
+ .debug_str     0x000000000001368a       0xc4 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
                                       0x110c8 (size before relaxing)
- .debug_str     0x0000000000013711      0x34b /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+ .debug_str     0x000000000001374e      0x34b /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
                                       0x11938 (size before relaxing)
 
 .comment        0x0000000000000000       0x76
@@ -1683,18 +1693,18 @@ OUTPUT(Interface_LPC1769_SIM7600.axf elf32-littlearm)
  .ARM.attributes
                 0x000000000000027c       0x1b /usr/local/mcuxpressoide-11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7-m/nofp/libcr_eabihelpers.a(memcpy.o)
 
-.debug_frame    0x0000000000000000     0x169c
- .debug_frame   0x0000000000000000      0x140 ./src/Interface_LPC1769_SIM7600.o
- .debug_frame   0x0000000000000140      0x170 ./src/cr_startup_lpc175x_6x.o
- .debug_frame   0x00000000000002b0       0x34 ./src/sysinit.o
- .debug_frame   0x00000000000002e4      0x5d4 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
- .debug_frame   0x00000000000008b8       0x8c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
- .debug_frame   0x0000000000000944       0x88 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(chip_17xx_40xx.o)
- .debug_frame   0x00000000000009cc      0x490 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
- .debug_frame   0x0000000000000e5c       0x80 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
- .debug_frame   0x0000000000000edc      0x164 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
- .debug_frame   0x0000000000001040      0x12c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
- .debug_frame   0x000000000000116c      0x530 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
+.debug_frame    0x0000000000000000     0x16d4
+ .debug_frame   0x0000000000000000      0x178 ./src/Interface_LPC1769_SIM7600.o
+ .debug_frame   0x0000000000000178      0x170 ./src/cr_startup_lpc175x_6x.o
+ .debug_frame   0x00000000000002e8       0x34 ./src/sysinit.o
+ .debug_frame   0x000000000000031c      0x5d4 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+ .debug_frame   0x00000000000008f0       0x8c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
+ .debug_frame   0x000000000000097c       0x88 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(chip_17xx_40xx.o)
+ .debug_frame   0x0000000000000a04      0x490 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(clock_17xx_40xx.o)
+ .debug_frame   0x0000000000000e94       0x80 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(iocon_17xx_40xx.o)
+ .debug_frame   0x0000000000000f14      0x164 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(ring_buffer.o)
+ .debug_frame   0x0000000000001078      0x12c /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(sysinit_17xx_40xx.o)
+ .debug_frame   0x00000000000011a4      0x530 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_chip_175x_6x/Debug/liblpc_chip_175x_6x.a(uart_17xx_40xx.o)
 
 Cross Reference Table
 
@@ -1703,12 +1713,16 @@ ADC_IRQHandler                                    ./src/cr_startup_lpc175x_6x.o
 BOD_IRQHandler                                    ./src/cr_startup_lpc175x_6x.o
 Board_Audio_Init                                  /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
 Board_Buttons_Init                                /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                                                  ./src/Interface_LPC1769_SIM7600.o
 Board_Debug_Init                                  /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                                                  ./src/Interface_LPC1769_SIM7600.o
 Board_ENET_GetMacADDR                             /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
 Board_I2C_Init                                    /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
 Board_Init                                        /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
                                                   ./src/Interface_LPC1769_SIM7600.o
 Board_Joystick_Init                               /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+Board_LED_Init                                    /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
+                                                  ./src/Interface_LPC1769_SIM7600.o
 Board_LED_Set                                     /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
                                                   ./src/Interface_LPC1769_SIM7600.o
 Board_LED_Test                                    /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
@@ -1722,11 +1736,11 @@ Board_SetupClocking                               /home/ankit/Documents/MCUXpres
 Board_SetupMuxing                                 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
 Board_SystemInit                                  /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board_sysinit.o)
                                                   ./src/sysinit.o
+                                                  ./src/Interface_LPC1769_SIM7600.o
 Board_UARTGetChar                                 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
 Board_UARTPutChar                                 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
 Board_UARTPutSTR                                  /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
 Board_UART_Init                                   /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
-                                                  ./src/Interface_LPC1769_SIM7600.o
 Board_USBD_Init                                   /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
 BusFault_Handler                                  ./src/cr_startup_lpc175x_6x.o
 Buttons_GetStatus                                 /home/ankit/Documents/MCUXpresso_11.1.1_3241/workspace/lpc_board_nxp_lpcxpresso_1769/Debug/liblpc_board_nxp_lpcxpresso_1769.a(board.o)
@@ -1917,6 +1931,11 @@ g_pfnVectors                                      ./src/cr_startup_lpc175x_6x.o
                                                   ./src/sysinit.o
 inst1                                             ./src/Interface_LPC1769_SIM7600.o
 inst2                                             ./src/Interface_LPC1769_SIM7600.o
+inst3                                             ./src/Interface_LPC1769_SIM7600.o
+inst4                                             ./src/Interface_LPC1769_SIM7600.o
+inst5                                             ./src/Interface_LPC1769_SIM7600.o
+inst6                                             ./src/Interface_LPC1769_SIM7600.o
+inst7                                             ./src/Interface_LPC1769_SIM7600.o
 main                                              ./src/Interface_LPC1769_SIM7600.o
                                                   /usr/local/mcuxpressoide-11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(__weak__main.o)
 memcpy                                            /usr/local/mcuxpressoide-11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.1.0.202001081728/tools/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(memcpy.o)
