@@ -31,7 +31,7 @@ int HX711_Read(HX711* data) {
 	if (isNegative) {
 		count = count ^ 0xFF000000;
 	}
-	GPIO_WriteBit(data->PD_SCK_PinType, data->PD_SCK_PinNumber, SET);         // 25th pulse for mode 0
+	GPIO_WriteBit(data->PD_SCK_PinType, data->PD_SCK_PinNumber, SET);         // 25th Pulse for mode 0
 	GPIO_WriteBit(data->PD_SCK_PinType, data->PD_SCK_PinNumber, RESET);
 	for (int i = 0; i < data->gain; i++) {                                   //if gain is other than 0 this block executes
 		GPIO_WriteBit(data->PD_SCK_PinType, data->PD_SCK_PinNumber, SET);    // if i=1 , channel= B,gain=32
